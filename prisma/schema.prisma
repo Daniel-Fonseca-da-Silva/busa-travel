@@ -9,3 +9,57 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  age       Int
+  document  String   @unique
+  createdAt DateTime @default(now())
+  updateAt  DateTime @default(now())
+  amount    Float    @default(0.0)
+  tickets   Ticket[]
+
+  @@map("user")
+}
+
+model Ticket {
+  id           Int      @id @default(autoincrement())
+  origin       String
+  destiny      String
+  dateBoarding DateTime
+  price        Float    @default(0.0)
+  state        String?
+  createdAt    DateTime @default(now())
+  updateAt     DateTime @default(now())
+  passenger    User?    @relation(fields: [passengerId], references: [id])
+  passengerId  Int?
+
+  @@map("ticket")
+}
+
+model Bus {
+  id        Int      @id @default(autoincrement())
+  name      String
+  capacity  Int
+  year      String
+  color     String?
+  drivers   Driver[]
+  createdAt DateTime @default(now())
+  updateAt  DateTime @default(now())
+
+  @@map("bus")
+}
+
+model Driver {
+  id            Int      @id @default(autoincrement())
+  name          String
+  age           Int
+  driverLicense String
+  salary        Float
+  buses         Bus[]
+  createdAt     DateTime @default(now())
+  updateAt      DateTime @default(now())
+
+  @@map("driver")
+}
