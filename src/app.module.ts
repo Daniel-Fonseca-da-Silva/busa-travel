@@ -5,9 +5,16 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { TicketsModule } from './tickets/tickets.module';
 import { BusesModule } from './buses/buses.module';
+import { DriversModule } from './drivers/drivers.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), UsersModule, TicketsModule, BusesModule],
+  imports: [
+    ConfigModule.forRoot(),
+    UsersModule,
+    TicketsModule,
+    BusesModule,
+    DriversModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
