@@ -12,7 +12,11 @@ export class UsersService {
     return `This action returns all users`;
   }
 
-  findOne(id: number) {
+  findOne(document: string) {
+    return `This action returns a #${document} user`;
+  }
+
+  findOneById(id: number) {
     return `This action returns a #${id} user`;
   }
 
