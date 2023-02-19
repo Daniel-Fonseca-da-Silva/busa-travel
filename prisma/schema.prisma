@@ -30,10 +30,10 @@ model Ticket {
   dateBoarding DateTime
   price        Float    @default(0.0)
   state        String?
-  createdAt    DateTime @default(now())
-  updateAt     DateTime @default(now())
   passenger    User?    @relation(fields: [passengerId], references: [id])
   passengerId  Int?
+  createdAt    DateTime @default(now())
+  updateAt     DateTime @default(now())
 
   @@map("ticket")
 }
