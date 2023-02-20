@@ -30,7 +30,7 @@ export class UsersController {
     return this.usersService.findOne(document);
   }
 
-  @Get(':id')
+  @Get('busca/:id')
   findOneById(@Param('id') id: string) {
     return this.usersService.findOneById(+id);
   }
