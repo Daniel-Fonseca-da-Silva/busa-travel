@@ -1,26 +1,29 @@
 import { Injectable } from '@nestjs/common';
 import { CreateDriverDto } from './dto/create-driver.dto';
 import { UpdateDriverDto } from './dto/update-driver.dto';
+import { DriverRepository } from './repositories/driver.repository';
 
 @Injectable()
 export class DriversService {
+  constructor(private readonly driverRepository: DriverRepository) {}
+
   create(createDriverDto: CreateDriverDto) {
-    return 'This action adds a new driver';
+    return this.driverRepository.create(createDriverDto);
   }
 
   findAll() {
-    return `This action returns all drivers`;
+    return this.driverRepository.findAll();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} driver`;
+    return this.driverRepository.findOne(id);
   }
 
   update(id: number, updateDriverDto: UpdateDriverDto) {
-    return `This action updates a #${id} driver`;
+    return this.driverRepository.update(id, updateDriverDto);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} driver`;
+    return this.driverRepository.remove(id);
   }
 }
