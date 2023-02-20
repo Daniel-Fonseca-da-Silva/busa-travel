@@ -1,4 +1,11 @@
-import { IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+  IsDateString,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
 
 export class CreateTicketDto {
   @IsString()
@@ -9,7 +16,7 @@ export class CreateTicketDto {
   @IsNotEmpty()
   destiny: string;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   dateBoarding: Date;
 
@@ -17,7 +24,9 @@ export class CreateTicketDto {
   @IsNotEmpty()
   price: number;
 
-  @IsNumber()
+  @IsString()
+  @MinLength(2)
+  @MaxLength(2)
   state: string;
 
   passengerId: number;
