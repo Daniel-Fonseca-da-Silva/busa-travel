@@ -14,7 +14,9 @@ model User {
   id        Int      @id @default(autoincrement())
   name      String
   age       Int
-  document  String   @unique
+  document  String   @unique @db.Char(5)
+  email     String   @unique
+  tel       String
   createdAt DateTime @default(now())
   updateAt  DateTime @default(now())
   amount    Float    @default(0.0)
@@ -29,7 +31,7 @@ model Ticket {
   destiny      String
   dateBoarding DateTime
   price        Float    @default(0.0)
-  state        String?
+  state        String?  @db.Char(2)
   passenger    User?    @relation(fields: [passengerId], references: [id])
   passengerId  Int?
   createdAt    DateTime @default(now())
@@ -57,9 +59,25 @@ model Driver {
   age           Int
   driverLicense String
   salary        Float
+  document      String   @unique
+  tel           String
+  email         String   @unique
+  adm           Boolean  @default(false)
   buses         Bus[]
   createdAt     DateTime @default(now())
   updateAt      DateTime @default(now())
 
   @@map("driver")
+}
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  tel       String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+  updateAt  DateTime @default(now())
+
+  @@map("contact")
 }
