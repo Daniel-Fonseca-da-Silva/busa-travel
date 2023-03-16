@@ -5,6 +5,8 @@ export class UserEntity implements User {
   name: string;
   age: number;
   document: string;
+  email: string;
+  tel: string;
   createdAt: Date;
   updateAt: Date;
   amount: number;

@@ -6,6 +6,10 @@ export class DriverEntity implements Driver {
   age: number;
   driverLicense: string;
   salary: number;
+  document: string;
+  email: string;
+  tel: string;
+  adm: boolean;
   createdAt: Date;
   updateAt: Date;
 }

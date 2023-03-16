@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class CreateDriverDto {
   @IsString()
@@ -15,4 +15,19 @@ export class CreateDriverDto {
 
   @IsNumber()
   salary: number;
+
+  @IsString()
+  @IsNotEmpty()
+  document: string;
+
+  @IsString()
+  @IsNotEmpty()
+  email: string;
+
+  @IsString()
+  @IsNotEmpty()
+  tel: string;
+
+  @IsBoolean()
+  adm: boolean;
 }
