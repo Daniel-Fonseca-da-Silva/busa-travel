@@ -25,9 +25,9 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get(':document')
-  findOne(@Param('document') document: string) {
-    return this.usersService.findOne(document);
+  @Get('document/:document')
+  findByDocument(@Param('document') document: string) {
+    return this.usersService.findByDocument(document);
   }
 
   @Get('busca/:id')

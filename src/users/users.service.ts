@@ -15,8 +15,8 @@ export class UsersService {
     return this.usersRepository.findAll();
   }
 
-  findOne(document: string) {
-    return this.usersRepository.findOne(document);
+  findByDocument(document: string) {
+    return this.usersRepository.findByDocument(document);
   }
 
   findOneById(id: number) {
