@@ -30,6 +30,11 @@ export class DriversController {
     return this.driversService.findOne(+id);
   }
 
+  @Get('document/:document')
+  findByDocument(@Param('document') document: string) {
+    return this.driversService.findByDocument(document);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateDriverDto: UpdateDriverDto) {
     return this.driversService.update(+id, updateDriverDto);

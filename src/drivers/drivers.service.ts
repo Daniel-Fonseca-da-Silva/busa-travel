@@ -19,6 +19,10 @@ export class DriversService {
     return this.driverRepository.findOne(id);
   }
 
+  findByDocument(document: string) {
+    return this.driverRepository.findByDocument(document);
+  }
+
   update(id: number, updateDriverDto: UpdateDriverDto) {
     return this.driverRepository.update(id, updateDriverDto);
   }

@@ -25,6 +25,14 @@ export class DriverRepository {
     });
   }
 
+  async findByDocument(document: string): Promise<DriverEntity> {
+    return await this.prisma.driver.findUnique({
+      where: {
+        document,
+      },
+    });
+  }
+
   async update(
     id: number,
     updateDriverDto: UpdateDriverDto,
